@@ -1,12 +1,20 @@
 import Home from './components/Home'
 import Skills from './components/Skills'
+import Projects from './components/Project'
+import Education from './components/Education'
+import Footer from './components/Footer'
+import Layout from './components/Layout'
+
 
 function App() {
   return (
-    <div className="bg-bg-app">
-      <Home/>
+    <Layout>
+        <Home/>
       <Skills/>
-    </div>
+      <Projects/>
+      <Education/>
+      <Footer/>
+    </Layout>
   )
 }
 export default App

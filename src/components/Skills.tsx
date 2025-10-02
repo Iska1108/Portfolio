@@ -10,14 +10,14 @@ type SkillsProps = {
 
 const SkillGroup = ({ title, items }: SkillsProps) => (
   <div className="space-y-3">
-    <h3 className="text-sm font-semibold tracking-wide text-text-muted">
+    <h3 className="text-2xl text-center font-semibold tracking-wide text-text-muted">
       {title}
     </h3>
-    <ul className="grid grid-cols-2 gap-2">
+    <ul className="grid grid-cols-1 gap-2 text-center">
       {items.map((s) => (
         <li
           key={s}
-          className="text-xs px-3 py-1 rounded-lg border border-border bg-bg-card text-text"
+          className="text-xs px-3 py-1 text-text"
         >
           {s}
         </li>
@@ -28,7 +28,7 @@ const SkillGroup = ({ title, items }: SkillsProps) => (
 
 export default function Skills() {
   return (
-    <section id="skills" className="max-w-6xl mx-auto px-6 py-16">
+    <section id="skills" className="max-w-6xl mx-auto px-6 py-16 text-2xl">
       <h2 className="text-2xl sm:text-3xl font-bold text-text text-center">
         Skills
       </h2>

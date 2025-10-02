@@ -1,60 +1,58 @@
 const Home = () => {
   return (
-    <section id="home" className="relative overflow-hidden bg-bg-app text-text">
-      {/* halos de fond subtils */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-primary blur-3xl opacity-10" />
-        <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-primary-hover blur-3xl opacity-10" />
-      </div>
-
-      <div className="section">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
-          {/* Colonne gauche : texte */}
+    <section
+      id="home"
+      className="relative overflow-hidden text-text py-28"
+    >
+      <div className="relative z-10 max-w-[1400px] mx-auto px-10">
+        <div className="grid items-center gap-24 lg:grid-cols-2">
+          {/* Colonne gauche */}
           <div>
-            <h1 className="text-4xl sm:text-5xl text-text font-extrabold tracking-tight">
+            <h1 className="text-6xl sm:text-7xl text-text font-extrabold tracking-tight">
               Dilmi Kaïs
             </h1>
 
-            <p className="mt-3 text-xl sm:text-2xl text-text-muted">
+            <p className="mt-6 text-3xl sm:text-4xl text-text-muted">
               Développeur Full-Stack
             </p>
 
-            <p className="mt-4 max-w-xl text-text opacity-80">
-              React / TypeScript côté front — Spring Boot côté back. UIs propres,
-              performantes et maintenables.
+            <p className="mt-8 max-w-3xl text-xl sm:text-2xl text-text opacity-80 leading-relaxed">
+              React / TypeScript côté front — Spring Boot côté back.  
+              UIs propres, performantes et maintenables.
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap gap-6">
               <a
                 href="https://linkedin.com/in/kais-dilmi"
                 target="_blank"
-                className="btn-primary"
+                className="btn-primary text-lg px-8 py-4"
               >
                 LinkedIn
               </a>
               <a
                 href="https://github.com/Iska1108"
                 target="_blank"
-                className="btn-ghost"
+                className="btn-ghost text-lg px-8 py-4"
               >
                 GitHub
               </a>
               <a
                 href="mailto:kaisdilmi2003@gmail.com"
-                className="btn-ghost"
+                className="btn-ghost text-lg px-8 py-4"
               >
                 Email
               </a>
             </div>
           </div>
 
-          {/* Colonne droite : photo */}
+          {/* Colonne droite */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-primary blur-2xl opacity-20" />
+              <div className="absolute inset-0 rounded-full bg-primary blur-3xl opacity-30" />
               <img
-                src="../assets/profile.jpeg"    
-                className="relative h-48 w-48 sm:h-56 sm:w-56 rounded-full object-cover ring-4 ring-primary ring-opacity-60"
+                src="../assets/profile.jpg"
+                className="relative h-[22rem] w-[22rem] sm:h-[26rem] sm:w-[26rem] rounded-full object-cover ring-[10px] ring-primary ring-opacity-60"
+                alt="portrait"
               />
             </div>
           </div>
@@ -63,4 +61,5 @@ const Home = () => {
     </section>
   );
 };
+
 export default Home;
