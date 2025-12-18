@@ -7,8 +7,7 @@ export default function Contact() {
 
           <h2 className="text-4xl font-bold mb-6">Prêt à collaborer ?</h2>
           <p className="text-slate-400 mb-8 max-w-xl mx-auto">
-            Je suis actuellement à la recherche d&apos;une alternance (rythme 2j/3j) à partir de septembre 2025.
-            Discutons de la manière dont je peux contribuer à vos projets.
+            Apprenti Ingénieur chez Enedis pour les 3 prochaines années. N'hésitez pas à me contacter pour discuter de projets innovants ou d'opportunités de collaboration future.
           </p>
 
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-8">

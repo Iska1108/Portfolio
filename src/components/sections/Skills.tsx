@@ -5,6 +5,18 @@ type SkillCategory = {
 };
 
 export default function Skills() {
+  // Liste des compétences à mettre en avant (exactement comme écrites dans ton tableau)
+  const highlightedSkills = [
+    "React / Native", 
+    "TailwindCSS", 
+    "Node.js", 
+    "Spring Boot (Java)", 
+    "PostgreSQL", 
+    "Teradata", 
+    "CI/CD", 
+    "Git / GitHub"
+  ];
+
   const skillCategories: SkillCategory[] = [
     { title: "Frontend", icon: "fa-code", skills: ["React / Native", "Angular", "TypeScript", "TailwindCSS", "HTML/CSS"] },
     { title: "Backend", icon: "fa-server", skills: ["Node.js", "Spring Boot (Java)", "PHP", "Python", "SQL / PL/SQL"] },
@@ -30,12 +42,17 @@ export default function Skills() {
               </div>
               <h3 className="text-xl font-bold mb-4">{cat.title}</h3>
               <ul className="space-y-2">
-                {cat.skills.map((skill) => (
-                  <li key={skill} className="flex items-center text-slate-400 text-sm">
-                    <i className="fas fa-check text-brand-purple mr-2 text-xs" />
-                    {skill}
-                  </li>
-                ))}
+                {cat.skills.map((skill) => {
+                  const isHighlighted = highlightedSkills.includes(skill);
+                  return (
+                    <li key={skill} className="flex items-center text-sm">
+                      <i className="fas fa-check text-brand-purple mr-2 text-xs" />
+                      <span className={isHighlighted ? "text-gradient font-bold" : "text-slate-400"}>
+                        {skill}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}

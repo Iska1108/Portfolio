@@ -18,14 +18,14 @@ export default function Hero() {
             <span className="text-gradient">Kais Dilmi</span>
           </h1>
 
-          <p
+            <p
             className="text-xl text-slate-400 max-w-lg leading-relaxed animate-fade-in-up"
             style={{ animationDelay: "0.2s" }}
-          >
-            Développeur Fullstack passionné par le Big Data et les architectures modernes. À la
-            recherche d&apos;une <strong className="text-brand-light">alternance de 36 mois</strong>{" "}
-            dès septembre 2025.
-          </p>
+            >
+            Apprenti <strong className="text-brand-light">Ingénieur Logiciel</strong> chez Enedis. 
+            Spécialisé en développement Fullstack avec une forte compétence <strong className="text-brand-light">DevOps & CI/CD</strong>, 
+            je construis des architectures robustes pour les 3 ans à venir.
+            </p>
 
           <div
             className="flex flex-wrap gap-4 pt-4 animate-fade-in-up"
@@ -76,20 +76,25 @@ export default function Hero() {
                 developer.<span className="text-blue-400">education</span> ={" "}
                 <span className="text-green-400">&quot;EFREI Paris&quot;</span>;
               </p>
+                <p>
+                developer.<span className="text-blue-400">company</span> ={" "}
+                <span className="text-green-400">&quot;Enedis&quot;</span>;
+              </p>
               <p>
                 developer.<span className="text-blue-400">stack</span> = [
                 <span className="text-green-400">&quot;Angular&quot;</span>,{" "}
                 <span className="text-green-400">&quot;React&quot;</span>,{" "}
-                <span className="text-green-400">&quot;Spring Boot&quot;</span>];
+                <span className="text-green-400">&quot;Spring Boot&quot;</span>,{" "}
+                <span className="text-green-400">&quot;CI/CD&quot;</span>];
               </p>
               <p>
                 developer.<span className="text-blue-400">status</span> ={" "}
-                <span className="text-green-400">&quot;Open to Work&quot;</span>;
+                <span className="text-green-400">&quot;Apprentice Software Engineer &quot;</span>;
               </p>
-              <p className="text-slate-500">// Ready to deploy in September 2025</p>
+              <p className="text-slate-500">// Graduation expected in 2028</p>
               <p>
                 <span className="text-brand-purple">return</span> developer.
-                <span className="text-blue-400">createAmazingThings</span>();
+                <span className="text-blue-400">buildScalableSystems</span>();
               </p>
             </div>
           </div>
