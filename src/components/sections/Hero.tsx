@@ -15,7 +15,7 @@ export default function Hero() {
             style={{ animationDelay: "0.1s" }}
           >
             Bonjour, je suis <br />
-            <span className="text-gradient">Kais Dilmi</span>
+            <span className="text-gradient">Kaïs Dilmi</span>
           </h1>
 
             <p

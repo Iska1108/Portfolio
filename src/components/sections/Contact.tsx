@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Contact() {
   return (
     <section id="contact" className="py-20 mb-20">
@@ -31,12 +33,17 @@ export default function Contact() {
             </div>
           </div>
 
+          {/* --- BOUTON TÉLÉCHARGEMENT --- */}
           <a
-            href="#"
-            className="inline-block px-10 py-4 bg-gradient-to-r from-brand-accent to-brand-secondary text-brand-dark font-bold rounded-full hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] transition-all transform hover:-translate-y-1"
+            href="/CV_Kais_Dilmi.pdf"  // Le chemin vers ton fichier dans le dossier public
+            download="CV_Kais_Dilmi.pdf" // Force le téléchargement et donne le nom du fichier
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-10 py-4 bg-gradient-to-r from-brand-accent to-brand-secondary text-brand-dark font-bold rounded-full hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] transition-all transform hover:-translate-y-1 cursor-pointer"
           >
             Télécharger mon CV <i className="fas fa-download ml-2" />
           </a>
+
         </div>
       </div>
     </section>
