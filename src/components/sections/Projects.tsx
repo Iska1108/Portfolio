@@ -31,7 +31,7 @@ export default function Projects() {
       internalLink: "/project/taxon-connect",
     },
     {
-      title: "Air Quality Dash",
+      title: "Qualit'Air",
       type: "Dashboard Web",
       desc: "Tableau de bord interactif analysant les polluants, la météo et les vents.",
       stack: ["React.js", "Tailwind CSS", "Node.js", "SQL"],

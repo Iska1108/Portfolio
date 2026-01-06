@@ -14,8 +14,8 @@ export default function Experience() {
       role: "Alternance Ingénieur Logiciel",
       period: "Sept 2025 - Présent",
       loc: "Courbevoie",
-      desc: "Poursuite des missions en alternance : Conception avancée et industrialisation de solutions Fullstack dans un environnement Big Data critique.",
-      tags: ["React JS", "Spring Boot", "Architecture", "CI/CD"],
+      desc: "Industrialisation d'une IHM. Transformation du prototype en application de production robuste. Automatisation et sécurisation pour garantir un accès fiable aux données stratégiques.",
+      tags: ["React JS", "Spring Boot", "Teradata", "CI/CD (Gitlab CI)"],
     },
     {
       company: "Enedis - DSI",
@@ -23,7 +23,7 @@ export default function Experience() {
       period: "Mars 2025 - Juin 2025",
       loc: "Courbevoie",
       desc: "Développement d'une IHM fullstack (React JS / Spring Boot) pour la visualisation d'un méta-modèle Big Data.",
-      tags: ["React JS", "Spring Boot", "Teradata", "Big Data"],
+      tags: ["React JS", "Spring Boot", "Teradata", "CI/CD (Gitlab CI)"],
     },
     {
       company: "Comutitres - DSI",
@@ -31,7 +31,7 @@ export default function Experience() {
       period: "Avril 2024 - Juin 2024",
       loc: "Paris",
       desc: "Intégration et développement de modules pour l'abonnement Navigo. Amélioration de l'accessibilité.",
-      tags: ["React JS", "UI/UX", "Accessibilité"],
+      tags: ["React JS","TailwindCSS", "UI/UX", "Accessibilité"],
     },
   ];
 

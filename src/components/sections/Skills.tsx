@@ -13,7 +13,7 @@ export default function Skills() {
     "Spring Boot (Java)", 
     "PostgreSQL", 
     "Teradata", 
-    "CI/CD", 
+    "CI/CD (Gitlab CI)", 
     "Git / GitHub"
   ];
 
@@ -21,7 +21,7 @@ export default function Skills() {
     { title: "Frontend", icon: "fa-code", skills: ["React / Native", "Angular", "TypeScript", "TailwindCSS", "HTML/CSS"] },
     { title: "Backend", icon: "fa-server", skills: ["Node.js", "Spring Boot (Java)", "PHP", "Python", "SQL / PL/SQL"] },
     { title: "Data & DB", icon: "fa-database", skills: ["PostgreSQL", "MongoDB", "Neo4j", "Redis", "Teradata"] },
-    { title: "DevOps & Tools", icon: "fa-tools", skills: ["Docker", "Git / GitHub", "CI/CD", "Jira", "CodeCov"] },
+    { title: "DevOps & Tools", icon: "fa-tools", skills: ["Docker", "Git / GitHub", "CI/CD (Gitlab CI)", "Kubernetes", "AWS"] },
   ];
 
   return (

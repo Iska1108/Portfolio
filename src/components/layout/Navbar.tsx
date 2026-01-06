@@ -28,7 +28,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <a href="#" className="text-2xl font-bold font-mono tracking-tighter">
-          KD<span className="text-brand-accent">.</span>
+          <span className="text-brand-accent">~/</span> KD<span className="text-brand-accent">.</span>
         </a>
 
         {/* Desktop */}
