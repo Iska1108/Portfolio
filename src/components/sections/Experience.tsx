@@ -1,92 +1,82 @@
+import { useLanguage } from "../../i18n/LanguageContext";
+
 type Job = {
   company: string;
   role: string;
   period: string;
   loc: string;
-  desc: string;
+  points: string[];
   tags: string[];
 };
 
 export default function Experience() {
+  const { t } = useLanguage();
+
   const jobs: Job[] = [
     {
-      company: "Enedis - DSI",
-      role: "Alternance Ingénieur Logiciel",
-      period: "Sept 2025 - Présent",
+      company: t("Enedis, DSI (division Data)", "Enedis, IT Department (Data division)"),
+      role: t("Alternant concepteur-développeur logiciel & support solution", "Apprentice software designer/developer & solution support"),
+      period: t("Sept 2025 - Présent", "Sept 2025 - Present"),
       loc: "Courbevoie",
-      desc: "Industrialisation d'une IHM. Transformation du prototype en application de production robuste. Automatisation et sécurisation pour garantir un accès fiable aux données stratégiques.",
-      tags: ["React JS", "Spring Boot", "Teradata", "CI/CD (Gitlab CI)"],
+      points: [
+        t("Industrialisation d'une application web et sécurisation de l'accès à des données stratégiques.", "Industrialised a web application and secured access to strategic data."),
+        t("Mise en place de pipelines CI/CD et de déploiements Kubernetes, migration de microservices vers la nouvelle plateforme Haddock V2.", "Set up CI/CD pipelines and Kubernetes deployments; migrated microservices to the new Haddock V2 platform."),
+        t("Accompagnement des équipes produit sur les déploiements et migrations : pipelines, résolution d'incidents, adaptation des solutions.", "Supported product teams through deployments and migrations: pipelines, incident resolution and solution adaptation."),
+      ],
+      tags: ["React JS", "Spring Boot", "Teradata", "CI/CD (Gitlab CI)", "Kubernetes"],
     },
     {
-      company: "Enedis - DSI",
-      role: "Stage Dév. Fullstack IHM Big Data",
-      period: "Mars 2025 - Juin 2025",
+      company: t("Enedis, DSI (division Data)", "Enedis, IT Department (Data division)"),
+      role: t("Stage développeur fullstack, application web Big Data", "Full-stack developer intern, Big Data web application"),
+      period: t("Mars 2025 - Juin 2025", "Mar 2025 - Jun 2025"),
       loc: "Courbevoie",
-      desc: "Développement d'une IHM fullstack (React JS / Spring Boot) pour la visualisation d'un méta-modèle Big Data.",
+      points: [
+        t("Application fullstack (React / Spring Boot) pour visualiser et enrichir un méta-modèle dans un environnement Big Data (Teradata).", "Built a full-stack web application (React / Spring Boot) to visualise and enrich a metamodel in a Big Data environment (Teradata)."),
+        t("Conception d'une interface graphique ergonomique, conforme à la charte de l'entreprise, pour afficher les dépendances entre objets.", "Designed an ergonomic graphical interface following the corporate design guidelines to display dependencies between objects."),
+        t("Traitement des logs Teradata pour enrichir le méta-modèle dynamiquement.", "Processed Teradata logs to enrich the metamodel dynamically."),
+        t("Participation aux réunions d'équipe et aux décisions techniques et fonctionnelles, recueil des besoins avec les Product Owners.", "Took part in team meetings and technical and functional decisions; gathered user requirements with the Product Owners."),
+      ],
       tags: ["React JS", "Spring Boot", "Teradata", "CI/CD (Gitlab CI)"],
     },
     {
       company: "Comutitres - DSI",
-      role: "Stage Dév. Web React JS",
-      period: "Avril 2024 - Juin 2024",
+      role: t("Stage développeur web React JS", "Web developer intern, React JS"),
+      period: t("Avril 2024 - Juin 2024", "Apr 2024 - Jun 2024"),
       loc: "Paris",
-      desc: "Intégration et développement de modules pour l'abonnement Navigo. Amélioration de l'accessibilité.",
-      tags: ["React JS","TailwindCSS", "UI/UX", "Accessibilité"],
+      points: [
+        t("Intégration et développement de modules pour l'abonnement Navigo. Amélioration de l'accessibilité.", "Integrated and developed modules for the Navigo pass subscription. Improved accessibility."),
+      ],
+      tags: ["React JS", "TailwindCSS", "UI/UX", t("Accessibilité", "Accessibility")],
     },
   ];
 
   return (
-    <section id="experience" className="py-20 relative bg-slate-900/50">
-      <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-4xl font-bold mb-12 flex items-center gap-3">
-          <span className="text-gradient">Expérience</span>
-          <div className="h-px bg-slate-700 flex-grow ml-4" />
-        </h2>
+    <section id="experience" className="py-28">
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="section-title">{t("Expérience", "Experience")}</h2>
 
-        <div className="space-y-12 relative before:content-[''] before:absolute before:left-4 md:before:left-1/2 before:top-0 before:w-0.5 before:h-full before:bg-slate-700">
-          {jobs.map((job, idx) => (
-            <div
-              key={idx}
-              className={`relative flex flex-col md:flex-row gap-8 ${idx % 2 === 0 ? "md:flex-row-reverse" : ""}`}
-            >
-              <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-brand-accent rounded-full border-4 border-slate-900 z-10 mt-6 shadow-[0_0_10px_rgba(56,189,248,0.5)]" />
-
-              <div className="hidden md:block w-1/2 text-right pt-6 px-8">
-                <span className={`font-mono text-sm text-brand-accent ${idx % 2 === 0 ? "text-left" : "text-right"}`}>
-                  {job.period}
-                </span>
+        <ol>
+          {jobs.map((job) => (
+            <li key={job.role} className="border-t-2 border-black py-10 grid md:grid-cols-12 gap-4 md:gap-8">
+              <div className="md:col-span-3 text-graphite">
+                <p className="font-bold text-black">{job.period}</p>
+                <p>{job.loc}</p>
               </div>
-
-              <div className="ml-12 md:ml-0 w-full md:w-1/2">
-                <div className="glass-card p-6 rounded-xl card-hover transition-all">
-                  <span className="md:hidden font-mono text-xs text-brand-accent mb-2 block">{job.period}</span>
-
-                  <h3 className="text-xl font-bold text-white">{job.role}</h3>
-                  <div className="flex justify-between items-center mb-4">
-                    <h4 className="text-brand-purple font-semibold">{job.company}</h4>
-                    <span className="text-xs text-slate-500">
-                      <i className="fas fa-map-marker-alt mr-1" />
-                      {job.loc}
-                    </span>
-                  </div>
-
-                  <p className="text-slate-400 text-sm mb-4 leading-relaxed">{job.desc}</p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {job.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs px-2 py-1 rounded bg-slate-700/50 text-slate-300 border border-slate-600"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              <div className="md:col-span-9">
+                <h3 className="font-display text-3xl md:text-4xl leading-tight">{job.role}</h3>
+                <p className="font-semibold mt-1">{job.company}</p>
+                <ul className="mt-4 space-y-2 max-w-[66ch]">
+                  {job.points.map((pt) => (
+                    <li key={pt} className="text-graphite leading-relaxed pl-5 relative before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-2.5 before:h-0.5 before:bg-hong">
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-sm font-semibold mt-4">{job.tags.join(", ")}</p>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

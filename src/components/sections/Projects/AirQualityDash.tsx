@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../../../i18n/LanguageContext";
 
 // --- IMPORTS DES ASSETS ---
 import imgMain from "../../../assets/dashboard-main.png"; 
@@ -8,7 +9,7 @@ import imgList from "../../../assets/dashboard-list.png";
 import logoQualitair from "../../../assets/qualitair-logo.png";
 
 export default function AirQualityDash() {
-  
+  const { t } = useLanguage();
   // States pour gérer les erreurs de chargement d'images
   const [logoError, setLogoError] = useState(false);
 
@@ -26,14 +27,12 @@ export default function AirQualityDash() {
           className="mb-8 inline-flex items-center text-slate-400 hover:text-brand-accent transition-colors group font-mono text-sm"
         >
           <i className="fas fa-arrow-left mr-2 transform group-hover:-translate-x-1 transition-transform" />
-          Retour aux projets
+          {t("Retour aux projets", "Back to projects")}
         </Link>
 
         {/* --- HEADER --- */}
         <div className="relative glass-card rounded-3xl p-8 md:p-12 mb-12 overflow-hidden border-t border-slate-700/50">
           {/* Effets de fond (Thème Aérien : Sky/Blue) */}
-          <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl" />
 
           <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
             
@@ -57,14 +56,14 @@ export default function AirQualityDash() {
                 Qualit'Air
               </h1>
               <p className="text-xl text-sky-400 font-mono mb-4">
-                Dashboard Environnemental & Météo
+                {t("Dashboard Environnemental & Météo", "Environmental & Weather Dashboard")}
               </p>
               <div className="flex flex-wrap gap-3 justify-center md:justify-start">
                  <span className="px-3 py-1 text-xs rounded-full bg-slate-700/50 text-slate-300 border border-slate-600">
-                    Févr. 2024 - Avr. 2024
+                    {t("Févr. 2024 - Avr. 2024", "Feb 2024 - Apr 2024")}
                  </span>
                  <span className="px-3 py-1 text-xs rounded-full bg-sky-500/20 text-sky-400 border border-sky-500/30">
-                    Projet Académique (2 mois)
+                    {t("Projet Académique (2 mois)", "Academic Project (2 months)")}
                  </span>
               </div>
             </div>
@@ -79,12 +78,12 @@ export default function AirQualityDash() {
                 <div className="aspect-video bg-slate-900 rounded-xl overflow-hidden relative">
                     <img 
                         src={imgMain} 
-                        alt="Vue globale du dashboard" 
+                        alt={t("Vue globale du dashboard", "Dashboard overview")}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         onError={(e) => (e.target as HTMLImageElement).style.display = 'none'} 
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                        <span className="text-white text-sm font-medium">Monitoring des Polluants</span>
+                        <span className="text-white text-sm font-medium">{t("Monitoring des Polluants", "Pollutant Monitoring")}</span>
                     </div>
                 </div>
             </div>
@@ -94,12 +93,12 @@ export default function AirQualityDash() {
                 <div className="aspect-video bg-slate-900 rounded-xl overflow-hidden relative">
                     <img 
                         src={imgMap} 
-                        alt="Carte des vents interactive" 
+                        alt={t("Carte des vents interactive", "Interactive wind map")}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         onError={(e) => (e.target as HTMLImageElement).style.display = 'none'}
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                        <span className="text-white text-sm font-medium">Carte Interactive</span>
+                        <span className="text-white text-sm font-medium">{t("Carte Interactive", "Interactive Map")}</span>
                     </div>
                 </div>
             </div>
@@ -109,12 +108,12 @@ export default function AirQualityDash() {
                 <div className="aspect-video bg-slate-900 rounded-xl overflow-hidden relative">
                     <img 
                         src={imgList} 
-                        alt="Liste des données détaillées" 
+                        alt={t("Liste des données détaillées", "Detailed data list")}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         onError={(e) => (e.target as HTMLImageElement).style.display = 'none'}
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                        <span className="text-white text-sm font-medium">Données Détaillées</span>
+                        <span className="text-white text-sm font-medium">{t("Données Détaillées", "Detailed Data")}</span>
                     </div>
                 </div>
             </div>
@@ -133,10 +132,18 @@ export default function AirQualityDash() {
                 Mission
               </h2>
               <p className="text-slate-300 leading-relaxed text-lg mb-4">
-                Ce projet est un tableau de bord développé avec <strong>React</strong> et <strong>Tailwind CSS</strong>, destiné à analyser et présenter des données sur les polluants, la météo et les cartes des vents .
+                {t(
+                  <>Ce projet est un tableau de bord développé avec <strong>React</strong> et <strong>Tailwind CSS</strong>, destiné à analyser et présenter des données sur les polluants, la météo et les cartes des vents .</>,
+                  <>This project is a dashboard built with <strong>React</strong> and <strong>Tailwind CSS</strong>, designed to analyze and present data on pollutants, weather and wind maps.</>,
+<>이 프로젝트는 <strong>React</strong>와 <strong>Tailwind CSS</strong>로 개발한 대시보드로, 오염 물질, 날씨, 바람 지도 데이터를 분석하고 보여줍니다.</>
+                )}
               </p>
               <p className="text-slate-300 leading-relaxed text-lg">
-                Il propose un <strong>système d'information graphique</strong> complet pour une visualisation claire et intuitive des données environnementales en temps réel.
+                {t(
+                  <>Il propose un <strong>système d'information graphique</strong> complet pour une visualisation claire et intuitive des données environnementales en temps réel.</>,
+                  <>It provides a complete <strong>graphical information system</strong> for clear, intuitive visualization of real-time environmental data.</>,
+<>환경 데이터를 실시간으로 명확하고 직관적으로 시각화하는 완전한 <strong>그래픽 정보 시스템</strong>을 제공합니다.</>
+                )}
               </p>
             </div>
 
@@ -144,32 +151,48 @@ export default function AirQualityDash() {
             <div className="grid md:grid-cols-2 gap-6">
                 <div className="glass-card p-6 rounded-2xl bg-slate-800/30 border border-slate-700">
                     <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                        <i className="fas fa-chart-bar text-sky-500" /> Analyse & Visu
+                        <i className="fas fa-chart-bar text-sky-500" /> {t("Analyse & Visu", "Analysis & Viz")}
                     </h3>
                     <ul className="space-y-3 text-slate-400 text-sm">
                         <li className="flex items-start gap-3">
                             <i className="fas fa-check text-sky-500 mt-1"></i>
-                            <span><strong>Analyse des Polluants :</strong> Visualisation des niveaux de divers polluants dans l'atmosphère.</span>
+                            <span>{t(
+                              <><strong>Analyse des Polluants :</strong> Visualisation des niveaux de divers polluants dans l'atmosphère.</>,
+                              <><strong>Pollutant Analysis:</strong> Visualization of the levels of various pollutants in the atmosphere.</>,
+<><strong>오염 물질 분석:</strong> 대기 중 다양한 오염 물질 농도 시각화.</>
+                            )}</span>
                         </li>
                         <li className="flex items-start gap-3">
                             <i className="fas fa-check text-sky-500 mt-1"></i>
-                            <span><strong>Graphiques :</strong> Présentation des données sous forme de diagrammes interactifs.</span>
+                            <span>{t(
+                              <><strong>Graphiques :</strong> Présentation des données sous forme de diagrammes interactifs.</>,
+                              <><strong>Charts:</strong> Data presented as interactive diagrams.</>,
+<><strong>그래프:</strong> 인터랙티브 차트로 데이터 표시.</>
+                            )}</span>
                         </li>
                     </ul>
                 </div>
 
                 <div className="glass-card p-6 rounded-2xl bg-slate-800/30 border border-slate-700">
                     <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                        <i className="fas fa-cloud-sun-rain text-sky-500" /> Météo & Vents
+                        <i className="fas fa-cloud-sun-rain text-sky-500" /> {t("Météo & Vents", "Weather & Winds")}
                     </h3>
                     <ul className="space-y-3 text-slate-400 text-sm">
                         <li className="flex items-start gap-3">
                             <i className="fas fa-check text-sky-500 mt-1"></i>
-                            <span><strong>Carte des Vents :</strong> Affichage des courants de vent sur une carte interactive.</span>
+                            <span>{t(
+                              <><strong>Carte des Vents :</strong> Affichage des courants de vent sur une carte interactive.</>,
+                              <><strong>Wind Map:</strong> Wind currents displayed on an interactive map.</>,
+<><strong>바람 지도:</strong> 인터랙티브 지도에 바람의 흐름 표시.</>
+                            )}</span>
                         </li>
                         <li className="flex items-start gap-3">
                             <i className="fas fa-check text-sky-500 mt-1"></i>
-                            <span><strong>Données Météo :</strong> Mises à jour et prévisions détaillées.</span>
+                            <span>{t(
+                              <><strong>Données Météo :</strong> Mises à jour et prévisions détaillées.</>,
+                              <><strong>Weather Data:</strong> Detailed updates and forecasts.</>,
+<><strong>기상 데이터:</strong> 상세한 업데이트와 예보.</>
+                            )}</span>
                         </li>
                     </ul>
                 </div>
@@ -179,19 +202,26 @@ export default function AirQualityDash() {
             <div className="glass-card p-8 rounded-2xl border-l-4 border-l-sky-500/50 bg-slate-800/50 border-y border-r border-slate-700">
                 <h2 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
                    <i className="fas fa-cogs text-sky-500" /> 
-                   Challenges Techniques
+                   {t("Challenges Techniques", "Technical Challenges")}
                 </h2>
                 <div className="grid md:grid-cols-2 gap-6 text-sm">
                     <div>
                         <h4 className="font-bold text-slate-200 mb-2">Data Visualization</h4>
                         <p className="text-slate-400 leading-relaxed">
-                            Intégration de bibliothèques graphiques pour transformer des données JSON complexes en indicateurs visuels (Jauges, Courbes) clairs et réactifs.
+                            {t(
+                              "Intégration de bibliothèques graphiques pour transformer des données JSON complexes en indicateurs visuels (Jauges, Courbes) clairs et réactifs.",
+                              "Integrated charting libraries to turn complex JSON data into clear, responsive visual indicators (gauges, curves)."
+                            )}
                         </p>
                     </div>
                     <div>
                         <h4 className="font-bold text-slate-200 mb-2">UX & Responsive Design</h4>
                         <p className="text-slate-400 leading-relaxed">
-                           Utilisation avancée de <strong>Tailwind CSS</strong> pour créer une interface modulaire qui s'adapte aux différents écrans tout en conservant la lisibilité des cartes.
+                           {t(
+                             <>Utilisation avancée de <strong>Tailwind CSS</strong> pour créer une interface modulaire qui s'adapte aux différents écrans tout en conservant la lisibilité des cartes.</>,
+                             <>Advanced use of <strong>Tailwind CSS</strong> to build a modular interface that adapts to different screens while keeping the maps readable.</>,
+<>지도의 가독성을 유지하면서 다양한 화면에 맞춰지는 모듈형 인터페이스를 만들기 위해 <strong>Tailwind CSS</strong>를 적극 활용.</>
+                           )}
                         </p>
                     </div>
                 </div>
@@ -203,7 +233,7 @@ export default function AirQualityDash() {
             
             {/* STACK */}
             <div className="glass-card p-6 rounded-2xl bg-slate-800/50 border border-slate-700">
-              <h3 className="text-lg font-bold mb-4 text-white">Stack Technique</h3>
+              <h3 className="text-lg font-bold mb-4 text-white">{t("Stack Technique", "Tech Stack")}</h3>
               
               <div className="space-y-6">
                 <div>
@@ -234,7 +264,7 @@ export default function AirQualityDash() {
                 className="w-full py-4 bg-slate-800 hover:bg-sky-500 hover:text-white text-white font-bold rounded-xl transition-all flex items-center justify-center gap-3 border border-slate-600 hover:border-sky-500 shadow-lg"
               >
                 <i className="fab fa-github text-xl" />
-                Accéder au Repo
+                {t("Accéder au Repo", "View Repository")}
               </a>
           
               </div>

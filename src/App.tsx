@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import { useEffect } from "react";
 
 // Layout & Visuals
-import ParticleBackground from "./components/visuals/ParticleBackground";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 
@@ -11,6 +10,8 @@ import Hero from "./components/sections/Hero";
 import Skills from "./components/sections/Skills";
 import Experience from "./components/sections/Experience";
 import Projects from "./components/sections/Projects";
+import Education from "./components/sections/Education";
+import About from "./components/sections/About";
 import Contact from "./components/sections/Contact";
 
 // Ta nouvelle page de détails (assure-toi que le chemin d'import est bon)
@@ -37,13 +38,15 @@ function ScrollToTop() {
  */
 function Home() {
   return (
-    <>
+    <div className="bg-paper text-black">
       <Hero />
-      <Skills />
       <Experience />
+      <Education />
+      <About />
       <Projects />
+      <Skills />
       <Contact />
-    </>
+    </div>
   );
 }
 
@@ -52,7 +55,6 @@ export default function App() {
     <Router>
       <div className="antialiased text-slate-200 font-sans selection:bg-brand-accent selection:text-brand-dark min-h-screen flex flex-col">
         {/* Le background et la navbar sont en dehors des Routes pour être visibles partout */}
-        <ParticleBackground />
         <Navbar />
         
         {/* Gestion du scroll automatique */}

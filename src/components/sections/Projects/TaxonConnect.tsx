@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../../../i18n/LanguageContext";
 
 // --- IMPORTS DES IMAGES ---
 import logoTaxon from "../../../assets/TaxonConnect.png";
@@ -8,7 +9,7 @@ import imgHome from "../../../assets/taxon-accueil.png";
 import imgSearch from "../../../assets/taxon-search.png";
 
 export default function TaxonConnect() {
-  
+  const { t } = useLanguage();
   const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
@@ -25,13 +26,11 @@ export default function TaxonConnect() {
           className="mb-8 inline-flex items-center text-slate-400 hover:text-brand-accent transition-colors group font-mono text-sm"
         >
           <i className="fas fa-arrow-left mr-2 transform group-hover:-translate-x-1 transition-transform" />
-          Retour aux projets
+          {t("Retour aux projets", "Back to projects")}
         </Link>
 
         {/* --- HEADER --- */}
         <div className="relative glass-card rounded-3xl p-8 md:p-12 mb-12 overflow-hidden border-t border-slate-700/50">
-          <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-green-600/10 rounded-full blur-3xl" />
 
           <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
             
@@ -54,14 +53,14 @@ export default function TaxonConnect() {
                 Taxon Connect
               </h1>
               <p className="text-xl text-emerald-400 font-mono mb-4">
-                Bibliothèque Taxonomique & API INPN
+                {t("Bibliothèque Taxonomique & API INPN", "Taxonomic Library & INPN API")}
               </p>
               <div className="flex flex-wrap gap-3 justify-center md:justify-start">
                  <span className="px-3 py-1 text-xs rounded-full bg-slate-700/50 text-slate-300 border border-slate-600">
                     Sept 2023 - Jan 2024
                  </span>
                  <span className="px-3 py-1 text-xs rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                    Projet Académique (5 mois)
+                    {t("Projet Académique (5 mois)", "Academic Project (5 months)")}
                  </span>
               </div>
             </div>
@@ -76,12 +75,12 @@ export default function TaxonConnect() {
                 <div className="aspect-video bg-slate-900 rounded-xl overflow-hidden relative">
                     <img 
                         src={imgHome} 
-                        alt="Page d'accueil Taxon Connect" 
+                        alt={t("Page d'accueil Taxon Connect", "Taxon Connect home page")}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         onError={(e) => (e.target as HTMLImageElement).style.display = 'none'} 
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                        <span className="text-white text-sm font-medium">Page d'Accueil & Dashboard</span>
+                        <span className="text-white text-sm font-medium">{t("Page d'Accueil & Dashboard", "Home Page & Dashboard")}</span>
                     </div>
                 </div>
             </div>
@@ -91,12 +90,12 @@ export default function TaxonConnect() {
                 <div className="aspect-video bg-slate-900 rounded-xl overflow-hidden relative">
                     <img 
                         src={imgSearch} 
-                        alt="Recherche de taxons" 
+                        alt={t("Recherche de taxons", "Taxon search")}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         onError={(e) => (e.target as HTMLImageElement).style.display = 'none'}
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                        <span className="text-white text-sm font-medium">Recherche API & Filtres</span>
+                        <span className="text-white text-sm font-medium">{t("Recherche API & Filtres", "API Search & Filters")}</span>
                     </div>
                 </div>
             </div>
@@ -116,7 +115,10 @@ export default function TaxonConnect() {
                 Mission
               </h2>
               <p className="text-slate-300 leading-relaxed text-lg">
-                Développement d'une plateforme web permettant aux passionnés de biologie de constituer et gérer une collection personnelle d'espèces vivantes (taxons). L'application s'interface avec les données scientifiques officielles pour garantir l'exactitude des informations biologiques.
+                {t(
+                  "Développement d'une plateforme web permettant aux passionnés de biologie de constituer et gérer une collection personnelle d'espèces vivantes (taxons). L'application s'interface avec les données scientifiques officielles pour garantir l'exactitude des informations biologiques.",
+                  "Development of a web platform allowing biology enthusiasts to build and manage a personal collection of living species (taxa). The app connects to official scientific data to guarantee the accuracy of biological information."
+                )}
               </p>
             </div>
 
@@ -124,32 +126,32 @@ export default function TaxonConnect() {
             <div className="grid md:grid-cols-2 gap-6">
                 <div className="glass-card p-6 rounded-2xl bg-slate-800/30 border border-slate-700">
                     <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                        <i className="fas fa-book-open text-emerald-500" /> Gestion de Collection
+                        <i className="fas fa-book-open text-emerald-500" /> {t("Gestion de Collection", "Collection Management")}
                     </h3>
                     <ul className="space-y-3 text-slate-400 text-sm">
                         <li className="flex items-start gap-3">
                             <i className="fas fa-check text-emerald-500 mt-1"></i>
-                            <span>Création de bibliothèques personnelles</span>
+                            <span>{t("Création de bibliothèques personnelles", "Personal library creation")}</span>
                         </li>
                         <li className="flex items-start gap-3">
                             <i className="fas fa-check text-emerald-500 mt-1"></i>
-                            <span>Organisation et classement des taxons</span>
+                            <span>{t("Organisation et classement des taxons", "Taxon organization and classification")}</span>
                         </li>
                     </ul>
                 </div>
 
                 <div className="glass-card p-6 rounded-2xl bg-slate-800/30 border border-slate-700">
                     <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                        <i className="fas fa-network-wired text-emerald-500" /> Données Temps Réel
+                        <i className="fas fa-network-wired text-emerald-500" /> {t("Données Temps Réel", "Real-Time Data")}
                     </h3>
                     <ul className="space-y-3 text-slate-400 text-sm">
                         <li className="flex items-start gap-3">
                             <i className="fas fa-check text-emerald-500 mt-1"></i>
-                            <span>Connexion à l'API INPN (TaxRef)</span>
+                            <span>{t("Connexion à l'API INPN (TaxRef)", "Connection to the INPN API (TaxRef)")}</span>
                         </li>
                         <li className="flex items-start gap-3">
                             <i className="fas fa-check text-emerald-500 mt-1"></i>
-                            <span>Récupération des fiches espèces complètes</span>
+                            <span>{t("Récupération des fiches espèces complètes", "Retrieval of full species records")}</span>
                         </li>
                     </ul>
                 </div>
@@ -159,19 +161,27 @@ export default function TaxonConnect() {
             <div className="glass-card p-8 rounded-2xl border-l-4 border-l-emerald-500/50 bg-slate-800/50 border-y border-r border-slate-700">
                 <h2 className="text-xl font-bold mb-4 text-white flex items-center gap-2">
                    <i className="fas fa-cogs text-emerald-500" /> 
-                   Challenges & Responsabilités
+                   {t("Challenges & Responsabilités", "Challenges & Responsibilities")}
                 </h2>
                 <div className="grid md:grid-cols-2 gap-6 text-sm">
                     <div>
-                        <h4 className="font-bold text-slate-200 mb-2">Performance Backend</h4>
+                        <h4 className="font-bold text-slate-200 mb-2">{t("Performance Backend", "Backend Performance")}</h4>
                         <p className="text-slate-400 leading-relaxed">
-                            Conception d'une architecture <strong>PHP Orienté Objet</strong> optimisée pour réduire les temps d'exécution lors du traitement des données volumineuses renvoyées par l'API externe.
+                            {t(
+                              <>Conception d'une architecture <strong>PHP Orienté Objet</strong> optimisée pour réduire les temps d'exécution lors du traitement des données volumineuses renvoyées par l'API externe.</>,
+                              <>Designed an optimized <strong>Object-Oriented PHP</strong> architecture to reduce execution time when processing the large datasets returned by the external API.</>,
+<>외부 API가 반환하는 대용량 데이터의 처리 시간을 줄이도록 최적화된 <strong>객체 지향 PHP</strong> 아키텍처 설계.</>
+                            )}
                         </p>
                     </div>
                     <div>
-                        <h4 className="font-bold text-slate-200 mb-2">Qualité & Leadership</h4>
+                        <h4 className="font-bold text-slate-200 mb-2">{t("Qualité & Leadership", "Quality & Leadership")}</h4>
                         <p className="text-slate-400 leading-relaxed">
-                           Pilotage de l'équipe (3 pers.), mise en place de <strong>Tests Unitaires</strong> pour fiabiliser le code et rédaction d'une documentation technique exhaustive.
+                           {t(
+                             <>Pilotage de l'équipe (3 pers.), mise en place de <strong>Tests Unitaires</strong> pour fiabiliser le code et rédaction d'une documentation technique exhaustive.</>,
+                             <>Led the team (3 people), set up <strong>Unit Tests</strong> to make the code reliable and wrote comprehensive technical documentation.</>,
+<>팀(3명) 리드, 코드 신뢰성을 위한 <strong>단위 테스트</strong> 도입, 상세 기술 문서 작성.</>
+                           )}
                         </p>
                     </div>
                 </div>
@@ -183,7 +193,7 @@ export default function TaxonConnect() {
             
             {/* STACK */}
             <div className="glass-card p-6 rounded-2xl bg-slate-800/50 border border-slate-700">
-              <h3 className="text-lg font-bold mb-4 text-white">Stack Technique</h3>
+              <h3 className="text-lg font-bold mb-4 text-white">{t("Stack Technique", "Tech Stack")}</h3>
               
               <div className="space-y-6">
                 <div>
@@ -222,7 +232,7 @@ export default function TaxonConnect() {
                 className="w-full py-4 bg-slate-800 hover:bg-emerald-500 hover:text-white text-white font-bold rounded-xl transition-all flex items-center justify-center gap-3 border border-slate-600 hover:border-emerald-500 shadow-lg"
               >
                 <i className="fab fa-github text-xl" />
-                Accéder au Repo
+                {t("Accéder au Repo", "View Repository")}
               </a>
             </div>
           </div>
